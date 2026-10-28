@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+</head>
+<body>
+    <h1>Cadastro de Alunos</h1>
+
+    <input id="nome" type="text" placeholder="Digite seu nome">
+    <input id="idade" type="number" placeholder="Digite sua idade">
+
+    <button type="button" onclick="cadastrar()">Cadastrar</button>
+
+    <p id="mensagem"></p>
+
+    <script>
+        function cadastrar() {
+            const nome = document.getElementById("nome").value.trim();
+            const idadeTexto = document.getElementById("idade").value;
+            const idade = Number(idadeTexto);
+            const mensagem = document.getElementById("mensagem");
+
+            if (nome === "") {
+                alert("Digite seu nome!");
+                return;
+            }
+
+            if (
+                idadeTexto === "" ||
+                !Number.isInteger(idade) ||
+                idade < 0
+            ) {
+                alert("Digite uma idade inteira válida!");
+                return;
+            }
+
+            mensagem.textContent =
+                `Aluno ${nome} cadastrado com ${idade} anos.`;
+        }
+    </script>
+</body>
+</html>
